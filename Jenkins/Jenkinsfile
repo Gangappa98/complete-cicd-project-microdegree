@@ -107,15 +107,15 @@ pipeline {
                     </html>
                 """
         
-     //           emailext (
+    //           emailext (
     //              subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
     //                body: body,
     //               to: 'manojdevopstest@gmail.com',
     //             from: 'contactmanojmech@gmail.com',
     //             replyTo: 'contactmanojmech@gmail.com',
-   //              mimeType: 'text/html',
-   //             attachmentsPattern: '**/target/sonar-report.html'  // Path to the SonarQube report file
-   //           ) 
+    //              mimeType: 'text/html',
+    //             attachmentsPattern: '**/target/sonar-report.html'  // Path to the SonarQube report file
+    //           ) 
     
                 
             }
