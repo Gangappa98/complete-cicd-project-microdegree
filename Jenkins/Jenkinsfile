@@ -4,11 +4,11 @@ pipeline {
     environment {
         // Parametrizing the environment variables
         DOCKER_TAG = "${BUILD_NUMBER}"
-        IMAGE_NAME = "manojkrishnappa/fullstack"
-        AWS_REGION = "us-east-1"
-        SONAR_URL = 'http://3.84.96.251:9000/'  // SonarQube URL
+        IMAGE_NAME = "gangappa/fullstack"
+        AWS_REGION = "ap-south-1"
+        SONAR_URL = 'http://3.6.38.142:9000/'  // SonarQube URL
         GIT_REPO_NAME = "complete-cicd-project-microdegree"
-        GIT_USER_NAME = "ManojKRISHNAPPA"
+        GIT_USER_NAME = "Gangappa98"
     }
 
     tools {
@@ -19,7 +19,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/ManojKRISHNAPPA/complete-cicd-project-microdegree.git'
+                git branch: 'main', url: 'https://github.com/Gangappa98/complete-cicd-project-microdegree.git'
             }
         }
 
@@ -107,15 +107,15 @@ pipeline {
                     </html>
                 """
 
-                emailext (
-                    subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
-                    body: body,
-                    to: 'manojdevopstest@gmail.com',
-                    from: 'contactmanojmech@gmail.com',
-                    replyTo: 'contactmanojmech@gmail.com',
-                    mimeType: 'text/html',
-                    attachmentsPattern: '**/target/sonar-report.html'  // Path to the SonarQube report file
-                )
+               # emailext (
+               #    subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
+               #     body: body,
+               #    to: 'manojdevopstest@gmail.com',
+               #     from: 'contactmanojmech@gmail.com',
+               #    replyTo: 'contactmanojmech@gmail.com',
+               #     mimeType: 'text/html',
+               #    attachmentsPattern: '**/target/sonar-report.html'  // Path to the SonarQube report file
+               # )
             }
         }
     }
