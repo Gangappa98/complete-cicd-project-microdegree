@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         DOCKER_TAG = "20250801"
-        IMAGE_NAME = "manojkrishnappa/fullstack"
-        AWS_REGION = "us-east-1"
+        IMAGE_NAME = "gangappa/fullstack"
+        AWS_REGION = "ap-south-1"
         CLUSTER_NAME = "microdegree-cluster"
     }
 
@@ -43,7 +43,7 @@ pipeline {
         stage('Docker Image Scan') {
             steps {
                 script {
-                    sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:20250801"
+                    sh "trivy image --format table -o trivy-image-report.html gangappa/fullstack:20250801"
                 }
             }
         }
@@ -115,15 +115,15 @@ pipeline {
                     </html>
                 """
 
-                emailext (
-                    subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
-                    body: body,
-                    to: 'rohitpatil.cse@gmail.com,manojdevopstest@gmail.com',
-                    from: 'manojdevopstest@gmail.com',
-                    replyTo: 'manojdevopstest@gmail.com',
-                    mimeType: 'text/html',
-                    attachmentsPattern: 'trivy-image-report.html'
-                )
+                #emailext (
+                #   subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
+                #    body: body,
+                #   to: 'rohitpatil.cse@gmail.com,manojdevopstest@gmail.com',
+                #    from: 'manojdevopstest@gmail.com',
+                #   replyTo: 'manojdevopstest@gmail.com',
+                #    mimeType: 'text/html',
+                #    attachmentsPattern: 'trivy-image-report.html'
+                #)
             }
         }
     }
