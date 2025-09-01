@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: fullstack
-        image: gangappa/fullstack:replaceImageTag
+        image: gangappa/fullstack:20250801
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
