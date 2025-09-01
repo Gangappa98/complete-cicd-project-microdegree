@@ -115,15 +115,6 @@ pipeline {
                     </html>
                 """
 
-                #emailext (
-                #   subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
-                #    body: body,
-                #   to: 'rohitpatil.cse@gmail.com,manojdevopstest@gmail.com',
-                #    from: 'manojdevopstest@gmail.com',
-                #   replyTo: 'manojdevopstest@gmail.com',
-                #    mimeType: 'text/html',
-                #    attachmentsPattern: 'trivy-image-report.html'
-                #)
             }
         }
     }
